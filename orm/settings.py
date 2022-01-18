@@ -39,6 +39,10 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
+CUSTOMIZED_APPS = [
+    'querysets'
+]
+
 THRID_PARTY_APPS = [
     'corsheaders',
     'psycopg2'
@@ -51,7 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-] + THRID_PARTY_APPS
+] + THRID_PARTY_APPS + CUSTOMIZED_APPS
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
