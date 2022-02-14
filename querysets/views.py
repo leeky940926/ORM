@@ -1,8 +1,9 @@
 from django.db import transaction
 from django.http import HttpResponse
-from django.db.models import Sum, Avg
+from django.db.models import Sum, Avg, Prefetch
+from django.views import View
 
-from querysets.models import User, Book, Author, BookAuthor, Rating
+from querysets.models import City, Dong, Goo, User, Book, Author, BookAuthor, Rating
 
 #유저정보 전체를 불러오기 위해 all() 사용
 def get_all(request) :
@@ -68,3 +69,48 @@ def select_for_update(request) :
         for author in authors :
             print(author)
     return HttpResponse(authors)
+
+
+class BeforePrefetchView(View):
+    def get(self, request, city_id):
+       # citys = City.objects.prefetch_related("goo_set__dong_set").get(id=city_id)
+        citys = City.objects.prefetch_related(
+           Prefetch("goo_set",
+                    queryset=Goo.objects.all().prefetch_related(
+                        Prefetch(
+                            "dong_set",
+                            queryset=Dong.objects.all(),
+                            to_attr="prefetch_dong_set"
+                        )
+                    ),
+                    to_attr="prefetch_goo_set")
+       ).get(id=city_id)
+        
+        dong_list = []
+        goo_list = []
+        
+        # for goo in citys.goo_set.all():
+        #     for dong in goo.dong_set.all():
+        #         dong_list.append(dong.id)
+        #         goo_list.append(goo)
+
+        # for goo in citys.goo_set.all():
+        #     for dong in goo.dong_set.all():
+        #         dong_list.append(dong.id)
+        #         goo_list.append(goo)
+
+        
+        
+        for goo in citys.prefetch_goo_set:
+            for dong in goo.prefetch_dong_set:
+                dong_list.append(dong.id)
+                goo_list.append(goo)
+        
+                
+        for goo in citys.prefetch_goo_set:
+            for dong in goo.prefetch_dong_set:
+                dong_list.append(dong.id)
+                goo_list.append(goo)
+
+        
+        return HttpResponse(dong_list, goo_list)
