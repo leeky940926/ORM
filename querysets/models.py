@@ -43,3 +43,21 @@ class Rating(models.Model) :
     
     class Meta : 
         db_table = 'ratings'
+
+class Topping(models.Model):
+    name = models.CharField(max_length=30)
+
+class Pizza(models.Model):
+    name = models.CharField(max_length=50)
+    toppings = models.ManyToManyField(Topping)
+
+class City(models.Model):
+    name = models.CharField(max_length=30)
+
+class Goo(models.Model):
+    name = models.CharField(max_length=30)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+
+class Dong(models.Model):
+    name = models.CharField(max_length=30)
+    goo = models.ForeignKey(Goo, on_delete=models.CASCADE)
