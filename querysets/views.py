@@ -98,7 +98,6 @@ class BeforePrefetchView(View):
         #     for dong in goo.dong_set.all():
         #         dong_list.append(dong.id)
         #         goo_list.append(goo)
-
         
         
         for goo in citys.prefetch_goo_set:
