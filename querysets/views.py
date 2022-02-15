@@ -99,7 +99,6 @@ class BeforePrefetchView(View):
         #         dong_list.append(dong.id)
         #         goo_list.append(goo)
         
-        
         for goo in citys.prefetch_goo_set:
             for dong in goo.prefetch_dong_set:
                 dong_list.append(dong.id)
