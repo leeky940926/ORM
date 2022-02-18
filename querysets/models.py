@@ -39,7 +39,7 @@ class Reply(models.Model) :
 class Rating(models.Model) :
     book   = models.ForeignKey(Book, on_delete=models.CASCADE)
     user   = models.ForeignKey(User, on_delete=models.CASCADE)
-    rating = models.DecimalField(max_digits=3, decimal_places=1)
+    rate = models.DecimalField(max_digits=3, decimal_places=1)
     
     class Meta : 
         db_table = 'ratings'
