@@ -46,7 +46,8 @@ CUSTOMIZED_APPS = [
 THRID_PARTY_APPS = [
     'corsheaders',
     'psycopg2',
-    'django_extensions'
+    'django_extensions',
+    'polymorphic'
 ]
 
 INSTALLED_APPS = [
