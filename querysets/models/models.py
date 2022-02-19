@@ -70,3 +70,13 @@ class Person(models.Model):
     )
     name = models.CharField(max_length=60)
     shirt_size = models.CharField(max_length=2, choices=SHIRT_SIZES)
+
+
+class Profile(models.Model):
+    name = models.CharField(max_length=20)
+    age = models.PositiveIntegerField()
+
+class Developer(Profile):
+    framework = models.CharField(max_length=20)
+    years = models.PositiveIntegerField()
+
