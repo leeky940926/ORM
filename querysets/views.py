@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.db.models import Sum, Avg, Prefetch
 from django.views import View
 
-from querysets.models import City, Dong, Goo, User, Book, Author, BookAuthor, Rating
+from querysets.models.models import City, Dong, Goo, User, Book, Author, BookAuthor, Rating
 
 #유저정보 전체를 불러오기 위해 all() 사용
 def get_all(request) :
