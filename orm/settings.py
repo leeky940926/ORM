@@ -40,7 +40,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 CUSTOMIZED_APPS = [
-    'querysets'
+    'querysets',
+    'passwords'
 ]
 
 THRID_PARTY_APPS = [

@@ -1,8 +1,9 @@
 from django.urls     import path
-from querysets.views import (
+from querysets.views.views import (
     get_all, filter, exclude, aggregate, alias, annotate, order_by, distinct, select_related, prefetch_related, select_for_update, 
     BeforePrefetchView
 )
+
 urlpatterns = [
     path('/all', get_all),
     path('/filter', filter),
