@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+class Admin(models.Model):
+    phone_number = models.CharField(max_length=11, unique=True)
+    password = models.CharField(max_length=500)
+    

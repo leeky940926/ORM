@@ -18,5 +18,5 @@ from django.urls import path, include
 urlpatterns = [
     path('querysets', include('querysets.urls')),
     path('caches', include('querysets.urls')),
-    path('passwords', include('passwords.urls'))
+   # path('passwords', include('passwords.urls'))
 ]
