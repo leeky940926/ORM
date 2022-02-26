@@ -10,10 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import datetime
 import os
 import environ
 
 from pathlib import Path
+from django.conf import settings
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,7 +51,10 @@ THRID_PARTY_APPS = [
     'corsheaders',
     'psycopg2',
     'django_extensions',
-    'polymorphic'
+    'polymorphic',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
 ]
 
 INSTALLED_APPS = [
