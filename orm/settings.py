@@ -201,7 +201,6 @@ LOGGING = {
 APPEND_SLASH = False
 
 PASSWORD_HASHERS = [
-    'passwords.hashers.MyPBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
     'django.contrib.auth.hashers.Argon2PasswordHasher',
